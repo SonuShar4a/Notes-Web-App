@@ -40,7 +40,7 @@ const Login = async (req, res) => {
             return res.status(303).json({ success: false, message: "Invalid Password" })
         }
 
-        const SecureKey = "this is note app";
+       
         const token = await Jwt.sign({userId: FindUser._id },SecureKey, { expiresIn: "3d" })
         // console.log("tok"+token)
         res.cookie("token", token, {
