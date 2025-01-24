@@ -7,7 +7,7 @@ const Verificationtoken = async (req, res, next) => {
             // console.log('token', token)
             return res.status(303).json({ success: false, message: "Unauthorized,Please login" })
         }
-        const SecureKey = "XXXXXXXXXXX";
+         
         const decoded = await jwt.decode(token, SecureKey);
         const user = await UserModel.findById(decoded.userId);
         if (!user) {
